@@ -1,42 +1,786 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
 
-  <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graduates of 2026 — Class Chronicle</title>
+  <meta name="description"
+    content="Celebrating the Class of 2026. Memories, milestones and the stories that made us." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <h1 class="logo">MyWebsite</h1>
-
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="pages/about.html">About</a>
-      <a href="#">Projects</a>
-      <a href="#">Contact</a>
-    </nav>
+  <!-- ═══════════════════════════════════════════ TOP UTILITY BAR -->
+  <div class="top-bar">
+    <div class="top-bar__logo">
+      <a href="#home" class="logo-link">
+        <span class="logo-text">Class Chronicle</span>
+        <span class="logo-year">2026</span>
+      </a>
+    </div>
+    <div class="top-bar__right">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="6" cy="6" r="4.5" stroke="currentColor" />
+          <path d="M10 10l3 3" stroke="currentColor" stroke-linecap="round" />
+        </svg>
+        <input type="text" placeholder="Search..." id="search-input" />
+      </div>
+      <div class="date-display">APR 17, 2026</div>
+    </div>
   </div>
-</header>
 
-<main>
-  <section class="hero container">
-    <h2>Starter Website Template</h2>
-    <p>This is a professional starter structure for future development.</p>
+  <!-- ═══════════════════════════════════════════ NAVIGATION -->
+  <nav class="main-nav" id="main-nav">
+    <ul class="nav-list">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#class-photo" class="nav-link">Class Photo</a></li>
+      <li><a href="#graduates" class="nav-link">Graduates</a></li>
+      <li><a href="#letters" class="nav-link">Letters</a></li>
+      <li><a href="#message-wall" class="nav-link">Message Wall</a></li>
+      <li><a href="#teacher-letters" class="nav-link">Advisers</a></li>
+      <li><a href="#memories" class="nav-link">Memories</a></li>
+      <li><a href="#future" class="nav-link">The Future</a></li>
+    </ul>
+  </nav>
 
-    <button id="demoBtn">Test Button</button>
+  <!-- ═══════════════════════════════════════════ HERO -->
+  <section class="hero" id="home">
+    <div class="hero__content">
+      <div class="hero__kicker">Class of 2026</div>
+      <h1 class="hero__title">
+        We made it.<br>
+        <em>Together.</em>
+      </h1>
+      <p class="hero__sub">102 graduates. A lifetime of memories. This one's for us.</p>
+    </div>
+    <div class="hero__badge">
+      <div class="badge-inner">
+        <span class="badge-top">CLASS</span>
+        <span class="badge-year">2026</span>
+        <span class="badge-bottom">GRADUATES</span>
+      </div>
+    </div>
   </section>
-</main>
 
-<footer class="site-footer">
-  <p>© 2026 My Website</p>
-</footer>
+  <!-- ═══════════════════════════════════════════ TICKER -->
+  <div class="ticker-wrap ticker-wrap--dark">
+    <div class="ticker-track" id="ticker-1">
+      <span>WELCOME SENIORS OF 2026</span><span>★</span>
+      <span>CLASS CHRONICLE</span><span>★</span>
+      <span>CAPS &amp; GOWNS</span><span>★</span>
+      <span>CONGRATULATIONS GRADUATES</span><span>★</span>
+      <span>103 STRONG</span><span>★</span>
+      <span>PATRIARCHS · HEAVEN · PROPHETS</span><span>★</span>
+      <span>WELCOME SENIORS OF 2026</span><span>★</span>
+      <span>CLASS CHRONICLE</span><span>★</span>
+      <span>CAPS &amp; GOWNS</span><span>★</span>
+      <span>CONGRATULATIONS GRADUATES</span><span>★</span>
+      <span>103 STRONG</span><span>★</span>
+      <span>PATRIARCHS · HEAVEN · PROPHETS</span><span>★</span>
+    </div>
+  </div>
 
-<script src="assets/js/main.js"></script>
+  <!-- ═══════════════════════════════════════════ MAIN CONTENT -->
+  <main class="main-grid">
 
+    <!-- ══════════ CLASS PHOTO SECTION -->
+    <section class="class-photo-section" id="class-photo">
+      <div class="section-divider">
+        <span class="section-divider__label">CLASS PHOTO</span>
+      </div>
+      <p class="class-photo-intro">The whole batch — front and center. Every face, every memory.</p>
+
+      <div class="slideshow">
+        <div class="slideshow__track">
+          <div class="slideshow__slide active">
+            <img src="heaven.jpg" class="class-photo-img" alt="The whole batch — front and center.">
+            <div class="photo-caption">QUEEN OF HEAVEN</div>
+          </div>
+          <div class="slideshow__slide">
+            <img src="patriarchs.jpg" class="class-photo-img" alt="Patriarchs section.">
+            <div class="photo-caption">QUEEN OF PATRIARCHS</div>
+          </div>
+          <div class="slideshow__slide">
+            <img src="prophets.jpg" class="class-photo-img" alt="Heaven section.">
+            <div class="photo-caption">QUEEN OF PROPHETS</div>
+          </div>
+        </div>
+        <div class="slideshow__controls">
+          <button class="slideshow__btn" id="slide-prev" aria-label="Previous">&#8592;</button>
+          <div class="slideshow__dots">
+            <span class="slideshow__dot active" data-index="0"></span>
+            <span class="slideshow__dot" data-index="1"></span>
+            <span class="slideshow__dot" data-index="2"></span>
+          </div>
+          <button class="slideshow__btn" id="slide-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATRIARCHS -->
+    <section class="graduates-section" id="graduates">
+      <div class="section-divider">
+        <span class="section-divider__label">THE GRADUATES</span>
+      </div>
+      <div class="graduates-intro">
+        <h2 class="graduates-title">102 Names.<br><em>One Class.</em></h2>
+        <p class="graduates-sub">Here they are — Patriarchs, Heaven, and Prophets. Every single one of them.</p>
+      </div>
+
+      <div class="section-group" id="section-patriarchs">
+        <div class="section-group__header">
+          <div class="section-group__number">01</div>
+          <div>
+            <h3 class="section-group__name">Patriarchs</h3>
+            <div class="section-group__count">40 Graduates</div>
+          </div>
+        </div>
+        <div class="names-grid">
+          <div class="name-card"><span class="name-card__num">001</span><span class="name-card__name">Charles Jayson P.
+              Almeda</span></div>
+          <div class="name-card"><span class="name-card__num">002</span><span class="name-card__name">Raj Anaya T.
+              Atienza</span></div>
+          <div class="name-card"><span class="name-card__num">003</span><span class="name-card__name">John Daniel L.
+              Basto</span></div>
+          <div class="name-card"><span class="name-card__num">004</span><span class="name-card__name">Kyle Aaron Zhen M.
+              Gomba</span></div>
+          <div class="name-card"><span class="name-card__num">005</span><span class="name-card__name">Kairos Sachiel G.
+              Javier</span></div>
+          <div class="name-card"><span class="name-card__num">006</span><span class="name-card__name">James Kyle V.
+              Lanwang</span></div>
+          <div class="name-card"><span class="name-card__num">007</span><span class="name-card__name">Seunghyun M.
+              Lee</span></div>
+          <div class="name-card"><span class="name-card__num">008</span><span class="name-card__name">Andrei Jathniel
+              Leviste</span></div>
+          <div class="name-card name-card--salutatorian"><span class="name-card__num">009</span><span
+              class="name-card__name">Jan Benedict Magabo</span><span class="honor-badge honor-badge--sal">★
+              Salutatorian</span></div>
+          <div class="name-card"><span class="name-card__num">010</span><span class="name-card__name">Prince Rheiden B.
+              Malaluan</span></div>
+          <div class="name-card"><span class="name-card__num">011</span><span class="name-card__name">Marc Aldrich U.
+              Mazaredo</span></div>
+          <div class="name-card"><span class="name-card__num">012</span><span class="name-card__name">Dhyllan Fydelle C.
+              Medina</span></div>
+
+          <div class="name-card">
+            <span class="name-card__num">013</span>
+            <span class="name-card__name">Mharc Francis R. Mendoza</span>
+          </div>
+
+          <div class="name-card"><span class="name-card__num">014</span><span class="name-card__name">John Robert P.
+              Oruga</span></div>
+          <div class="name-card"><span class="name-card__num">015</span><span class="name-card__name">Mark Tommaz G.
+              Panghulan</span></div>
+          <div class="name-card"><span class="name-card__num">016</span><span class="name-card__name">Eros Nathaniel
+              Precilla</span></div>
+          <div class="name-card"><span class="name-card__num">017</span><span class="name-card__name">Jude Zachary
+              Punzalan</span></div>
+          <div class="name-card"><span class="name-card__num">018</span><span class="name-card__name">Cyrus Aldrich B.
+              Ramilo</span></div>
+          <div class="name-card"><span class="name-card__num">019</span><span class="name-card__name">Ismael C.
+              Reyes</span></div>
+          <div class="name-card"><span class="name-card__num">020</span><span class="name-card__name">Aldred Lance M.
+              Salazar</span></div>
+          <div class="name-card"><span class="name-card__num">021</span><span class="name-card__name">Ephraim A.
+              Serenio</span></div>
+          <div class="name-card"><span class="name-card__num">022</span><span class="name-card__name">Steven Grey D.
+              Tenorio</span></div>
+          <div class="name-card"><span class="name-card__num">023</span><span class="name-card__name">Aaron Jared T.
+              Tolentino</span></div>
+          <div class="name-card"><span class="name-card__num">024</span><span class="name-card__name">John Nicolas M.
+              Virtucio</span></div>
+          <div class="name-card"><span class="name-card__num">025</span><span class="name-card__name">Rhian Angel M.
+              Angeles</span></div>
+          <div class="name-card"><span class="name-card__num">026</span><span class="name-card__name">Franchesca Sophia
+              S. Asuncion</span></div>
+          <div class="name-card"><span class="name-card__num">027</span><span class="name-card__name">Jaizy U.
+              Bicbic</span></div>
+          <div class="name-card"><span class="name-card__num">028</span><span class="name-card__name">Kristine Cassandra
+              A. Capinpin</span></div>
+          <div class="name-card"><span class="name-card__num">029</span><span class="name-card__name">Keisha Paula A. De
+              Los Reyes</span></div>
+          <div class="name-card"><span class="name-card__num">030</span><span class="name-card__name">Jaz Nicolle D.
+              Enriquez</span></div>
+          <div class="name-card name-card--valedictorian"><span class="name-card__num">031</span><span
+              class="name-card__name">Princess Khloe Marie B. Geron</span><span class="honor-badge honor-badge--val">✦
+              Valedictorian</span></div>
+          <div class="name-card"><span class="name-card__num">032</span><span class="name-card__name">Allyzza Khate R.
+              Juarez</span></div>
+          <div class="name-card"><span class="name-card__num">033</span><span class="name-card__name">Kylle Elizaia F.
+              Laurena</span></div>
+          <div class="name-card"><span class="name-card__num">034</span><span class="name-card__name">Francheska Nicole
+              S. Mabilangan</span></div>
+          <div class="name-card"><span class="name-card__num">035</span><span class="name-card__name">Aziquia Queen D.
+              Malabuyoc</span></div>
+          <div class="name-card"><span class="name-card__num">036</span><span class="name-card__name">Miel Kirsten O.
+              Mendoza</span></div>
+          <div class="name-card"><span class="name-card__num">037</span><span class="name-card__name">Althea Ulricka A.
+              Noche</span></div>
+          <div class="name-card"><span class="name-card__num">038</span><span class="name-card__name">Ashley Jillean R.
+              Opiz</span></div>
+          <div class="name-card"><span class="name-card__num">039</span><span class="name-card__name">Francheska Noelle
+              B. Santillan</span></div>
+          <div class="name-card"><span class="name-card__num">040</span><span class="name-card__name">Uieah R.
+              Zapanta</span></div>
+        </div>
+        <div class="section-group" id="section-heaven">
+        </div>
+
+        <div class="section-group" id="section-prophets">
+        </div>
+        <!-- HEAVEN -->
+        <div class="section-group" id="section-heaven">
+          <div class="section-group__header">
+            <div class="section-group__number">02</div>
+            <div>
+              <h3 class="section-group__name">Heaven</h3>
+              <div class="section-group__count">—</div>
+            </div>
+          </div>
+          <div class="names-grid">
+            <div class="name-card"><span class="name-card__num">001</span><span class="name-card__name">Byron James V.
+                Balahadia</span></div>
+            <div class="name-card"><span class="name-card__num">002</span><span class="name-card__name">Geoffrey Clyde
+                A. Baysac</span></div>
+            <div class="name-card"><span class="name-card__num">003</span><span class="name-card__name">Craig Roddick Y.
+                Biscocho</span></div>
+            <div class="name-card"><span class="name-card__num">004</span><span class="name-card__name">Miguel Liam R.
+                Castro</span></div>
+            <div class="name-card"><span class="name-card__num">005</span><span class="name-card__name">Philip Adrian
+                Lat</span></div>
+            <div class="name-card"><span class="name-card__num">006</span><span class="name-card__name">Kyle Wein c.
+                Leus</span></div>
+            <div class="name-card"><span class="name-card__num">007</span><span class="name-card__name">Gil Anselmo
+                Lirio</span></div>
+            <div class="name-card"><span class="name-card__num">008</span><span class="name-card__name">Edrick Jarrett
+                M. Vanguardia</span></div>
+            <div class="name-card"><span class="name-card__num">009</span><span class="name-card__name">Mariel Allison
+                B. Abrigo</span></div>
+            <div class="name-card"><span class="name-card__num">010</span><span class="name-card__name">Rose Angela A.
+                Alcantara</span></div>
+            <div class="name-card"><span class="name-card__num">011</span><span class="name-card__name">Jaima Rose G.
+                Altamirano</span></div>
+            <div class="name-card"><span class="name-card__num">012</span><span class="name-card__name">Nikki M.
+                Andal</span></div>
+            <div class="name-card"><span class="name-card__num">013</span><span class="name-card__name">Princess Carla
+                Andaya</span></div>
+
+            <div class="name-card">
+              <span class="name-card__num">014</span>
+              <span class="name-card__name">Raia Erinne B. Balmes</span>
+            </div>
+
+            <div class="name-card"><span class="name-card__num">015</span><span class="name-card__name">Lindsay Nicole
+                A. Castillo</span></div>
+            <div class="name-card"><span class="name-card__num">016</span><span class="name-card__name">Yezzah Marie C.
+                Ciruelos</span></div>
+            <div class="name-card"><span class="name-card__num">017</span><span class="name-card__name">Nicole Danielle
+                D. Cruz</span></div>
+            <div class="name-card"><span class="name-card__num">018</span><span class="name-card__name">Jermaine Guaine
+                A. De Leon</span></div>
+            <div class="name-card"><span class="name-card__num">019</span><span class="name-card__name">Khylie Lorin
+                Diaz</span></div>
+            <div class="name-card"><span class="name-card__num">020</span><span class="name-card__name">Toni Angeline P.
+                Emelo</span></div>
+            <div class="name-card"><span class="name-card__num">021</span><span class="name-card__name">Ma. Althea
+                Eunice D. Endaya</span></div>
+            <div class="name-card"><span class="name-card__num">022</span><span class="name-card__name">Jilda Aurine O.
+                Entrada</span></div>
+            <div class="name-card"><span class="name-card__num">023</span><span class="name-card__name">Janelle Faye
+                Mabilangan</span></div>
+            <div class="name-card"><span class="name-card__num">024</span><span class="name-card__name">Angel Anne I.
+                Macatangay</span></div>
+            <div class="name-card"><span class="name-card__num">025</span><span class="name-card__name">Steffany.
+                Maxienne P. Maliksi</span></div>
+            <div class="name-card"><span class="name-card__num">026</span><span class="name-card__name">Annysa M.
+                Mercado</span></div>
+            <div class="name-card"><span class="name-card__num">027</span><span class="name-card__name">Meryle
+                Antoinnete M. Narvaez</span></div>
+            <div class="name-card"><span class="name-card__num">028</span><span class="name-card__name">Alexsandra D.
+                Ole</span></div>
+            <div class="name-card"><span class="name-card__num">029</span><span class="name-card__name">Alexa Lana
+                Opulencia</span></div>
+            <div class="name-card"><span class="name-card__num">030</span><span class="name-card__name">Karla Cherisse
+                D. Parado</span></div>
+            <div class="name-card"><span class="name-card__num">031</span><span class="name-card__name">Celistine Khaye
+                M. Perez</span></div>
+            <div class="name-card"><span class="name-card__num">032</span><span class="name-card__name">Daniela Grace I.
+                Pineda</span></div>
+            <div class="name-card"><span class="name-card__num">033</span><span class="name-card__name">Sophia Galadriel
+                S. Rivera</span></div>
+            <div class="name-card"><span class="name-card__num">034</span><span class="name-card__name">Louise Rein D.
+                Roxas</span></div>
+            <div class="name-card"><span class="name-card__num">035</span><span class="name-card__name">Alexandra
+                Beatrice N. Sapin</span></div>
+            <div class="name-card"><span class="name-card__num">036</span><span class="name-card__name">Merenelle L.
+                Sarsali</span></div>
+            <div class="name-card"><span class="name-card__num">037</span><span class="name-card__name">Muskaan Kaur
+                Sohal</span></div>
+            <div class="name-card"><span class="name-card__num">038</span><span class="name-card__name">Shekinah Alvarez
+                Sumibcay</span></div>
+          </div>
+        </div>
+
+        <!-- PROPHETS -->
+        <div class="section-group" id="section-prophets">
+          <div class="section-group__header">
+            <div class="section-group__number">03</div>
+            <div>
+              <h3 class="section-group__name">Prophets</h3>
+              <div class="section-group__count">—</div>
+            </div>
+          </div>
+          <div class="names-grid">
+            <div class="name-card"><span class="name-card__num">001</span><span class="name-card__name">Marc Anjo
+                Bahunsua</span></div>
+            <div class="name-card"><span class="name-card__num">002</span><span class="name-card__name">Kevin Rence
+                Balba</span></div>
+            <div class="name-card"><span class="name-card__num">003</span><span class="name-card__name">MC Drey
+                Navarete</span></div>
+            <div class="name-card name-card--salutatorian"><span class="name-card__num">004</span><span
+                class="name-card__name">Kirk Evan Sajines</span><span class="honor-badge honor-badge--sal">★
+                Salutatorian</span></div>
+            <div class="name-card"><span class="name-card__num">005</span><span class="name-card__name">John Melvin
+                Villanueva</span></div>
+            <div class="name-card name-card--valedictorian"><span class="name-card__num">006</span><span
+                class="name-card__name">Gian Maverick Vivas</span><span class="honor-badge honor-badge--val">✦
+                Valedictorian</span></div>
+            <div class="name-card"><span class="name-card__num">007</span><span class="name-card__name">Arianna
+                Malabanan</span></div>
+            <div class="name-card"><span class="name-card__num">008</span><span class="name-card__name">Eiya
+                Santos</span></div>
+            <div class="name-card"><span class="name-card__num">009</span><span class="name-card__name">Chariz
+                Binayug</span></div>
+            <div class="name-card"><span class="name-card__num">010</span><span class="name-card__name">Lea
+                Carandang</span></div>
+            <div class="name-card name-card--valedictorian"><span class="name-card__num">011</span><span
+                class="name-card__name">Carmela Catapang</span><span class="honor-badge honor-badge--val">✦
+                Valedictorian</span></div>
+            <div class="name-card"><span class="name-card__num">012</span><span class="name-card__name">Samantha
+                Magnayi</span></div>
+
+            <div class="name-card">
+              <span class="name-card__num">013</span>
+              <span class="name-card__name">Andrei Mendoza</span>
+            </div>
+
+            <div class="name-card name-card--salutatorian"><span class="name-card__num">014</span><span
+                class="name-card__name">Franchesca Mendoza</span><span class="honor-badge honor-badge--sal">★
+                Salutatorian</span></div>
+            <div class="name-card"><span class="name-card__num">015</span><span class="name-card__name">Maxinne
+                Sunpayco</span></div>
+            <div class="name-card"><span class="name-card__num">016</span><span class="name-card__name">Iana
+                Villegas</span></div>
+            <div class="name-card"><span class="name-card__num">017</span><span class="name-card__name">Maxiums
+                Bacolod</span></div>
+            <div class="name-card"><span class="name-card__num">018</span><span class="name-card__name">Raven
+                Dimapilis</span></div>
+            <div class="name-card"><span class="name-card__num">019</span><span class="name-card__name">Rupert
+                Lugtu</span></div>
+            <div class="name-card"><span class="name-card__num">020</span><span class="name-card__name">Miguel
+                Dominic</span></div>
+            <div class="name-card"><span class="name-card__num">021</span><span class="name-card__name">Enrico
+                Pamplona</span></div>
+            <div class="name-card"><span class="name-card__num">022</span><span class="name-card__name">Brent
+                Tercero</span></div>
+            <div class="name-card"><span class="name-card__num">023</span><span class="name-card__name">Zoe
+                Villanueva</span></div>
+            <div class="name-card"><span class="name-card__num">024</span><span class="name-card__name">Christian Andrei
+                Marin</span></div>
+          </div>
+        </div>
+
+    </section>
+
+    <!-- ══════════ LETTERS SECTION -->
+    <section class="letters-section" id="letters">
+      <div class="letters-section__header">
+        <div class="section-divider">
+          <span class="section-divider__label">LETTERS</span>
+        </div>
+        <h2 class="letters-section__title">Words That Carried Us</h2>
+      </div>
+
+      <div class="letters-grid">
+
+        <div class="letter-card letter-card--featured" id="letter-featured">
+          <div class="letter-card__from">From: A Senior — To: Freshman Me</div>
+          <blockquote class="letter-card__quote">
+            "I wish I could go back and tell you not to take yourself so seriously. The people you're afraid of
+            becoming
+            friends with will become your whole world. The class you almost dropped will become your favorite
+            memory.
+            The mistake you think will follow you forever — nobody remembers it but you."
+          </blockquote>
+          <div class="letter-card__sig">— Anonymous Senior, 2026</div>
+          <div class="letter-card__deco">✦</div>
+        </div>
+
+        <div class="letter-card" id="letter-2">
+          <div class="letter-card__from">From: The Faculty</div>
+          <blockquote class="letter-card__quote">
+            "You taught us as much as we taught you. Watching you grow has been the greatest honor of our careers.
+            Go
+            change the world — we know you will."
+          </blockquote>
+          <div class="letter-card__sig">— The Class of 2026 Faculty</div>
+        </div>
+
+        <div class="letter-card" id="letter-3">
+          <div class="letter-card__from">From: A Senior — To: The Future</div>
+          <blockquote class="letter-card__quote">
+            "We are the generation that was told the world was broken. So we decided to fix it. One idea, one
+            project,
+            one sleepless night at a time."
+          </blockquote>
+          <div class="letter-card__sig">— The Class of 2026</div>
+        </div>
+
+        <div class="letter-card letter-card--parent" id="letter-4">
+          <div class="letter-card__from">From: Parents &amp; Families</div>
+          <blockquote class="letter-card__quote">
+            "We watched you grow from children into extraordinary people. Every sacrifice was worth it. Every worry
+            was
+            answered. We are so impossibly proud."
+          </blockquote>
+          <div class="letter-card__sig">— The Families of 2026</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════ COMMUNITY MESSAGE WALL -->
+    <section class="message-wall-section" id="message-wall">
+      <div class="section-divider">
+        <span class="section-divider__label">MESSAGE WALL</span>
+      </div>
+      <div class="message-wall-intro">
+        <h2 class="message-wall__title">Leave Your<br><em>Message.</em></h2>
+        <p class="message-wall__sub">Got something to say to the Class of 2026? Leave a note — everyone can read it.</p>
+      </div>
+
+      <!-- SUBMIT FORM -->
+      <div class="msg-form-wrap">
+        <div class="msg-form-card">
+          <div class="msg-form-card__label">✉ YOUR LETTER</div>
+          <div class="msg-form-row">
+            <div class="msg-form-field">
+              <label class="msg-form-label" for="msg-from">From</label>
+              <input class="msg-form-input" type="text" id="msg-from" placeholder="Your name (or stay anonymous)"
+                maxlength="60" />
+            </div>
+            <div class="msg-form-field">
+              <label class="msg-form-label" for="msg-to">To</label>
+              <input class="msg-form-input" type="text" id="msg-to"
+                placeholder="e.g. The Class, A Friend, My Future Self…" maxlength="60" />
+            </div>
+          </div>
+          <div class="msg-form-field">
+            <label class="msg-form-label" for="msg-body">Your Message</label>
+            <textarea class="msg-form-textarea" id="msg-body" placeholder="Write your letter here…" maxlength="500"
+              rows="5"></textarea>
+            <div class="msg-form-counter"><span id="msg-char-count">0</span> / 500</div>
+          </div>
+          <div class="msg-form-actions">
+            <button class="msg-submit-btn" id="msg-submit-btn">Post to the Wall ✦</button>
+            <span class="msg-form-note">Public — visible to everyone who visits.</span>
+          </div>
+          <div class="msg-submit-feedback" id="msg-submit-feedback"></div>
+        </div>
+      </div>
+
+      <!-- PUBLIC WALL -->
+      <div class="msg-wall-header">
+        <span class="msg-wall-count-label">📌 <span id="msg-count">0</span> messages on the wall</span>
+      </div>
+      <div class="msg-wall-grid" id="msg-wall-grid">
+        <div class="msg-wall-empty" id="msg-wall-empty">
+          <span class="msg-wall-empty__icon">📭</span>
+          <p>No messages yet. Be the first to post!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ TEACHER'S LETTERS SECTION -->
+    <section class="teacher-letters-section" id="teacher-letters">
+      <div class="section-divider">
+        <span class="section-divider__label">FROM YOUR ADVISERS</span>
+      </div>
+      <h2 class="teacher-letters__title">A Note From<br><em>Your Teachers.</em></h2>
+      <p class="teacher-letters__sub">Words written with love — from the ones who watched you grow every single day.
+      </p>
+
+      <div class="teacher-letters__grid">
+
+        <div class="teacher-letter-card">
+          <div class="teacher-letter-card__section-tag">PATRIARCHS</div>
+          <div class="teacher-letter-card__teacher">
+            <div class="teacher-letter-card__avatar">AP</div>
+            <div>
+              <div class="teacher-letter-card__name">Ma'am Aizel Parale</div>
+              <div class="teacher-letter-card__role">Class Adviser — Patriarchs</div>
+            </div>
+          </div>
+          <blockquote class="teacher-letter-card__quote">
+            "My Dear Patriarchs,
+            Hello, my panganays! Congratulations! malapit na ang inyong most-awaited day, your
+            Graduation. While I know you’re all excited, there’s also a part of me that feels a little heavy
+            knowing that things won’t be the same anymore. I won’t be able to enter Room 302 the way I
+            used to from July 14 until April. I won’t be getting the same feeling of warmth and laughter
+            shared with you all kasi wala na kayo here. All of you made my first experience truly
+            unforgettablesince kayo ang nagparamdam sakin how I truly belong in this profession. MY first
+            panganays, MY sandalan, MY comfort, MY babies! I will truly miss all of you more than words
+            can express. I will never forget the moment you introduced me to the “Patriarchs” during Zhen’s
+            birthday. It still makes me smile whenever I remember it. That was also the moment I felt a sense
+            of relief. I was so nervous and anxious handling all of you because you are all amazing and
+            brilliant students. But that day, you made me feel like I truly belong, that I was meant to meet
+            you, my Patriarchs. Wahhhh this is not so meee.Hindi talaga ako ganito ka-emotional, but here I
+            am, feeling both proud and sad at the same time. Proud because I know you will all go on to
+            achieve great things, and sad because you will now take different paths, go to different schools,
+            and chase your dreams in your chosen fields.. Thank you for welcoming me, Thank you for
+            being my PAHINGA. Kahit ang kukulit nyo minsan. I will miss all the memories we shared
+            together, the accomplishments na nareceived nyo and the warmth of love you gave so freely.
+            Wahhh hindi talaga ako tooo. Wait naiiyak na ako buti letter to HAHAAHHA. Don’t forget
+            meeeee haaaa. I can’t think of anything pa na sabihin sa letter na to kundi thank you thank you
+            thank you talaga sa inyooo. I don’t know if I would want to handle any section pa next year kasi
+            baka maalala kolang kayo everytime huhu. Before I started teaching, I wasn’t really sure of
+            myself, It’s like something was missing. But looking back sa memories natin together as section,
+            I finally realized that I was ready back then, that missing piece ay kayo. You made me complete,
+            All of you helped me see things more clearly. All of you became a big part of my growth not just
+            as a teacher but also as a person. I am and will always be proud of you all, My Patriarch babies.
+            Walang time na binigo nyo ako. Thank you very much for being responsible, for doing your best,
+            and for making me proud every single day. I-end ko na to kasi humahaba na yan sya
+            HAAHAHAH. Good luck on your journey, always remember that Ma’am AIZ Loves you alll.
+            Mahal na mahal ko kayo!!!
+            Love,
+            Ma’am Aiz"
+          </blockquote>
+          <div class="teacher-letter-card__deco">✦</div>
+        </div>
+
+        <div class="teacher-letter-card">
+          <div class="teacher-letter-card__section-tag">HEAVEN</div>
+          <div class="teacher-letter-card__teacher">
+            <div class="teacher-letter-card__avatar">LO</div>
+            <div>
+              <div class="teacher-letter-card__name">Ma'am Lealyn Ocampo</div>
+              <div class="teacher-letter-card__role">Class Adviser — Heaven</div>
+            </div>
+          </div>
+          <blockquote class="teacher-letter-card__quote">
+            "
+            Dear My Future Doctors,
+
+            Sa totoo lamang, hindi ko alam kung paano o saan ko sisimulan ang mensaheng ito para sa inyo.
+
+            Sa walong buwan na tayo’y magkasama, nasaksihan ko hindi lamang ang inyong sipag sa pag-aaral, kundi pati
+            na
+            rin ang inyong tawanan, kulitan, iyakan, at higit sa lahat—ang inyong katatagan sa bawat hamon na inyong
+            hinarap. Every moment we shared has truly meant so much to me.
+
+            Palagi ninyo akong tinatanong, “Ma’am Lea, mamimiss niyo po ba kami?” Madalas ko mang sabihin na hindi,
+            pero
+            ang totoo… sobra-sobra ko kayong mamimiss. Hindi ninyo alam kung gaano kalaki ang naging bahagi ninyo sa
+            puso ko. Napakarami ko ring natutuhan mula sa inyo, mga anak.
+
+            Mahal na mahal ko kayo. At ngayon, nakikita kong handa na kayong lahat para sa susunod na yugto ng inyong
+            buhay—ang pagpasok sa kolehiyo. Huwag na huwag ninyong kakalimutan na proud na proud ako sa inyong
+            lahat—hindi lamang sa kung ano ang narating ninyo, kundi sa kung sino kayo bilang mga tao.
+
+            Dalangin ko ang inyong tagumpay, kalakasan, at patuloy na gabay sa bawat hakbang na tatahakin ninyo.
+            Nawa’y
+            manatili kayong mabubuting tao, may malasakit, at may paninindigan sa buhay.
+
+            Kasama kayong lahat sa aking mga panalangin, saan man kayo dalhin ng inyong mga pangarap.
+
+            Sa aking mga Future Doctors, Padayon at Pagpalain kayo!
+
+            With all my love,
+            Ma’am Lea"
+          </blockquote>
+          <div class="teacher-letter-card__deco">✦</div>
+        </div>
+
+        <div class="teacher-letter-card">
+          <div class="teacher-letter-card__section-tag">PROPHETS</div>
+          <div class="teacher-letter-card__teacher">
+            <div class="teacher-letter-card__avatar">HC</div>
+            <div>
+              <div class="teacher-letter-card__name">Ma'am Hazel CarolinO</div>
+              <div class="teacher-letter-card__role">Class Adviser — Prophets</div>
+            </div>
+          </div>
+          <blockquote class="teacher-letter-card__quote">
+            "Sa aking minamahal na Grade 12 – Queen of Prophets,
+
+            Kayo ang aking unang advisory class, kaya naman napakaespesyal ninyo sa aking puso. Habang papalapit na ang
+            inyong pagtatapos, nais kong ipabatid kung gaano ako kaproud sa bawat isa sa inyo. Alam kong hindi naging
+            madali ang ating mga pinagdaanan, may mga pagsubok, pagod, at sakripisyo, ngunit napatunayan ninyo na kaya
+            ninyong lampasan ang lahat ng iyon.
+
+            Hinding-hindi ko makakalimutan ang mga alaala nating nabuo, mga bunso ang ating mga tawanan, kwentuhan, at
+            maging ang mga hamon na sabay-sabay nating hinarap. Ipinaranas ninyo sa akin ang lahat ng aking mga “first
+            time” bilang inyong gurong tagapayo, at habang-buhay ko itong pahahalagahan. Maraming salamat sa tiwala,
+            pagmamahal, at respeto na ibinigay ninyo sa akin.
+
+            Mahal na mahal ko kayo, at lagi kong ipagmamalaki kung sino man ang inyong mararating sa hinaharap. Dalhin
+            ninyo ang mga aral, alaala, at pagkakaibigang nabuo ninyo sa taong ito. Huwag kayong matakot mangarap at
+            sumubok, dahil ang bawat hakbang ninyo ay magdadala sa inyo sa mas maliwanag at magandang kinabukasan.
+
+            Nawa’y manatili kayong mabuti, matatag, at may malasakit sa kapwa saan man kayo dalhin ng inyong mga
+            pangarap. Lagi ninyong tandaan na naniniwala ako sa kakayahan ninyo.
+
+            Ngayon pa lamang ay binabati ko na kayo, mga bunso, my dear Queen of Prophets. I am forever proud of you.
+
+            Nagmamahal,
+            Bb. Hazel"
+          </blockquote>
+          <div class="teacher-letter-card__deco">✦</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════ MEMORIES SECTION -->
+    <section class="quote-wall" id="memories">
+      <div class="section-divider">
+        <span class="section-divider__label">MEMORIES</span>
+      </div>
+      <div class="quote-wall__grid">
+
+        <div class="memory-tile memory-tile--large" id="memory-1">
+          <div class="memory-tile__year">FRESHMAN YEAR</div>
+          <div class="memory-tile__emoji">📚</div>
+          <p class="memory-tile__text">"Getting lost going to my first class and accidentally ending up in a senior
+            seminar. They let me stay."</p>
+        </div>
+
+        <div class="memory-tile" id="memory-2">
+          <div class="memory-tile__year">SOPHOMORE YEAR</div>
+          <div class="memory-tile__emoji">🌧️</div>
+          <p class="memory-tile__text">"The day it rained inside the gym. Nobody even questioned it — we just kept
+            playing."</p>
+        </div>
+
+        <div class="memory-tile" id="memory-3">
+          <div class="memory-tile__year">JUNIOR YEAR</div>
+          <div class="memory-tile__emoji">☕</div>
+          <p class="memory-tile__text">"Three espresso shots, one all-nighter, and a paper I'm honestly still proud
+            of."
+          </p>
+        </div>
+
+        <div class="memory-tile memory-tile--wide" id="memory-4">
+          <div class="memory-tile__year">SENIOR YEAR</div>
+          <div class="memory-tile__emoji">🎓</div>
+          <p class="memory-tile__text">"The last day of school has this strange feeling — like you want time to stop
+            and
+            start at the same time. We chose to dance."</p>
+        </div>
+
+        <div class="memory-tile" id="memory-5">
+          <div class="memory-tile__year">ALWAYS</div>
+          <div class="memory-tile__emoji">💛</div>
+          <p class="memory-tile__text">"The friendships that started as 'can I see your notes?' and became the
+            people I
+            call first."</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════ THE FUTURE -->
+    <section class="future-section" id="future">
+      <div class="future-section__bg-text" aria-hidden="true">2026</div>
+      <div class="future-section__content">
+        <div class="future-section__kicker">LOOKING AHEAD</div>
+        <h2 class="future-section__title">
+          Whatever comes next —<br>
+          <em>we are ready.</em>
+        </h2>
+        <p class="future-section__body">
+          College. Gap years. Trade schools. Startups. Art. Service. The unknown. There is no wrong door to walk
+          through
+          when you walk through it with everything these years gave you.
+        </p>
+        <div class="future-section__stats">
+          <div class="stat-item">
+            <div class="stat-item__number">102</div>
+            <div class="stat-item__label">Graduating Seniors</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">3</div>
+            <div class="stat-item__label">Sections</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">∞</div>
+            <div class="stat-item__label">Possible Futures</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════ BOTTOM TICKER -->
+  <div class="ticker-wrap ticker-wrap--light">
+    <div class="ticker-track ticker-track--reverse" id="ticker-2">
+      <span>CLASS OF 2026</span><span>◆</span>
+      <span>PATRIARCHS</span><span>◆</span>
+      <span>HEAVEN</span><span>◆</span>
+      <span>PROPHETS</span><span>◆</span>
+      <span>WE DID IT</span><span>◆</span>
+      <span>CLASS OF 2026</span><span>◆</span>
+      <span>PATRIARCHS</span><span>◆</span>
+      <span>HEAVEN</span><span>◆</span>
+      <span>PROPHETS</span><span>◆</span>
+      <span>WE DID IT</span><span>◆</span>
+      <span>CLASS OF 2026</span><span>◆</span>
+      <span>PATRIARCHS</span><span>◆</span>
+      <span>HEAVEN</span><span>◆</span>
+      <span>PROPHETS</span><span>◆</span>
+      <span>WE DID IT</span><span>◆</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <div class="site-footer__logo">Class Chronicle</div>
+        <div class="site-footer__tagline">The Official Yearbook of the Class of 2026</div>
+      </div>
+      <div class="site-footer__links">
+        <div class="footer-col">
+          <div class="footer-col__title">Sections</div>
+          <a href="#class-photo">Class Photo</a>
+          <a href="#graduates">Graduates</a>
+          <a href="#letters">Letters</a>
+          <a href="#memories">Memories</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col__title">Sections</div>
+          <a href="#section-patriarchs">Patriarchs</a>
+          <a href="#section-heaven">Heaven</a>
+          <a href="#section-prophets">Prophets</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Class Chronicle — Class of 2026</span>
+      <span>Made with 💛 by the Senior Class</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

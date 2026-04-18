@@ -32,86 +32,98 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoTimer = null;
 
   function goTo(index) {
-    // wrap around
     if (index < 0) index = slides.length - 1;
     if (index >= slides.length) index = 0;
-
-    // remove active from current
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
-
-    // set new
     current = index;
     slides[current].classList.add('active');
     dots[current].classList.add('active');
   }
 
   function startAuto() {
-    stopAuto(); // clear any existing timer first
-    autoTimer = setInterval(() => {
-      goTo(current + 1);
-    }, 4000); // change slide every 4 seconds
+    stopAuto();
+    autoTimer = setInterval(() => { goTo(current + 1); }, 4000);
   }
 
   function stopAuto() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
-    }
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
   }
 
-  // Button clicks
-  nextBtn.addEventListener('click', () => {
-    goTo(current + 1);
-    startAuto(); // restart timer after manual click
-  });
-
-  prevBtn.addEventListener('click', () => {
-    goTo(current - 1);
-    startAuto(); // restart timer after manual click
-  });
-
-  // Dot clicks
+  nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+  prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
   dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      goTo(parseInt(dot.dataset.index));
-      startAuto(); // restart timer after manual click
-    });
+    dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.index)); startAuto(); });
   });
 
-  // Start auto-play on load
   startAuto();
 });
+
 // ══════════════════════════════════════════
-// COMMUNITY MESSAGE WALL
+// COMMUNITY MESSAGE WALL — powered by Firebase Firestore
+// Messages are shared across ALL devices in real time
 // ══════════════════════════════════════════
 (async function initMessageWall() {
-  const STORAGE_KEY = 'classchronicle2026:messages';
 
-  const grid = document.getElementById('msg-wall-grid');
-  const empty = document.getElementById('msg-wall-empty');
-  const countEl = document.getElementById('msg-count');
+  // ── FIREBASE CONFIG (your project keys) ──
+  const firebaseConfig = {
+    apiKey: "AIzaSyD60t3O-xDpB_itKukGNacSxfGcJv6rs88",
+    authDomain: "batch-2026-f545c.firebaseapp.com",
+    projectId: "batch-2026-f545c",
+    storageBucket: "batch-2026-f545c.firebasestorage.app",
+    messagingSenderId: "174959004367",
+    appId: "1:174959004367:web:e215cf1f209033dd8d05ba",
+    measurementId: "G-12W3041XPN"
+  };
+
+  // ── LOAD FIREBASE FROM CDN ──
+  // We use the compat (v8-style) SDK so no build tools are needed
+  await loadScript('https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js');
+  await loadScript('https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js');
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) return resolve();
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  // ── INIT FIREBASE & FIRESTORE ──
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.firestore();
+  const messagesRef = db.collection('messages');
+
+  // ── DOM REFS ──
+  const grid      = document.getElementById('msg-wall-grid');
+  const empty     = document.getElementById('msg-wall-empty');
+  const countEl   = document.getElementById('msg-count');
   const fromInput = document.getElementById('msg-from');
-  const toInput = document.getElementById('msg-to');
+  const toInput   = document.getElementById('msg-to');
   const bodyInput = document.getElementById('msg-body');
   const submitBtn = document.getElementById('msg-submit-btn');
-  const feedback = document.getElementById('msg-submit-feedback');
+  const feedback  = document.getElementById('msg-submit-feedback');
   const charCount = document.getElementById('msg-char-count');
 
   if (!grid) return;
 
-  // Character counter
+  // ── CHARACTER COUNTER ──
   bodyInput.addEventListener('input', () => {
     charCount.textContent = bodyInput.value.length;
   });
 
-  // Format date nicely
-  function formatDate(iso) {
-    const d = new Date(iso);
+  // ── FORMAT DATE ──
+  function formatDate(ts) {
+    const d = ts && ts.toDate ? ts.toDate() : new Date(ts);
     return d.toLocaleDateString('en-PH', { month: 'short', day: 'numeric', year: 'numeric' });
   }
 
-  // Build a sticky note element
+  // ── BUILD A STICKY NOTE ──
   function buildNote(msg, isNew = false) {
     const note = document.createElement('div');
     note.className = 'msg-note' + (isNew ? ' msg-note--new' : '');
@@ -149,39 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
     return note;
   }
 
-  // Load and render all messages
-  async function loadMessages() {
-    try {
-      const result = localStorage.getItem(STORAGE_KEY);
-      const messages = result ? JSON.parse(result) : [];
-      renderMessages(messages);
-      return messages;
-    } catch (e) {
-      renderMessages([]);
-      return [];
-    }
-  }
+  // ── REAL-TIME LISTENER — updates wall instantly on ALL devices ──
+  messagesRef
+    .orderBy('date', 'desc')
+    .onSnapshot((snapshot) => {
+      // Clear existing notes
+      grid.querySelectorAll('.msg-note').forEach(n => n.remove());
 
-  function renderMessages(messages) {
-    // Clear existing notes (keep empty state element)
-    const existing = grid.querySelectorAll('.msg-note');
-    existing.forEach(n => n.remove());
+      const messages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      countEl.textContent = messages.length;
 
-    countEl.textContent = messages.length;
+      if (messages.length === 0) {
+        empty.style.display = '';
+      } else {
+        empty.style.display = 'none';
+        messages.forEach(msg => grid.appendChild(buildNote(msg)));
+      }
+    }, (err) => {
+      console.error('Firestore listen error:', err);
+    });
 
-    if (messages.length === 0) {
-      empty.style.display = '';
-    } else {
-      empty.style.display = 'none';
-      // Show newest first
-      const sorted = [...messages].reverse();
-      sorted.forEach(msg => {
-        grid.appendChild(buildNote(msg));
-      });
-    }
-  }
-
-  // Submit
+  // ── SUBMIT A NEW MESSAGE ──
   submitBtn.addEventListener('click', async () => {
     const body = bodyInput.value.trim();
     if (!body) {
@@ -195,39 +195,26 @@ document.addEventListener('DOMContentLoaded', () => {
     feedback.className = 'msg-submit-feedback';
 
     try {
-      // Get current messages
-      let messages = [];
-      const result = localStorage.getItem(STORAGE_KEY);
-      if (result) messages = JSON.parse(result);
-
-      const newMsg = {
-        id: Date.now() + Math.random().toString(36).slice(2),
+      await messagesRef.add({
         from: fromInput.value.trim() || 'Anonymous',
-        to: toInput.value.trim(),
+        to:   toInput.value.trim(),
         body,
-        date: new Date().toISOString()
-      };
-
-      messages.push(newMsg);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-
-      // Re-render
-      renderMessages(messages);
-
-      // Animate the newest note (first in grid since reversed)
-      const firstNote = grid.querySelector('.msg-note');
-      if (firstNote) firstNote.classList.add('msg-note--new');
+        date: firebase.firestore.FieldValue.serverTimestamp()
+      });
 
       // Clear form
       fromInput.value = '';
-      toInput.value = '';
+      toInput.value   = '';
       bodyInput.value = '';
       charCount.textContent = '0';
 
       feedback.textContent = '✦ Your message is now on the wall!';
       feedback.className = 'msg-submit-feedback success';
-
       setTimeout(() => { feedback.textContent = ''; }, 4000);
+
+      // Animate the newest note
+      const firstNote = grid.querySelector('.msg-note');
+      if (firstNote) firstNote.classList.add('msg-note--new');
 
     } catch (err) {
       console.error(err);
@@ -238,9 +225,4 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = false;
   });
 
-  // Initial load
-  await loadMessages();
-
-  // Auto-refresh every 30s
-  setInterval(loadMessages, 30000);
 })();

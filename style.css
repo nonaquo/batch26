@@ -1545,6 +1545,7 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
+  align-items: start;
 }
 
 .msg-wall-empty {
@@ -1630,7 +1631,6 @@ img {
   font-size: 14px;
   line-height: 1.7;
   color: var(--c-ink);
-  flex: 1;
   word-break: break-word;
 }
 

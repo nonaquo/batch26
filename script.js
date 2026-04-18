@@ -112,9 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!grid) return;
 
-  // ── CHARACTER COUNTER ──
+  // ── CHARACTER COUNTER (max 2000) ──
+  const MAX_CHARS = 2000;
+  bodyInput.setAttribute('maxlength', MAX_CHARS);
   bodyInput.addEventListener('input', () => {
-    charCount.textContent = bodyInput.value.length;
+    const len = bodyInput.value.length;
+    charCount.textContent = len;
+    if (charCount.parentElement) {
+      charCount.parentElement.style.color = len >= MAX_CHARS ? '#e74c3c' : '';
+    }
   });
 
   // ── FORMAT DATE ──
@@ -186,6 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = bodyInput.value.trim();
     if (!body) {
       feedback.textContent = 'Please write a message before posting.';
+      feedback.className = 'msg-submit-feedback error';
+      return;
+    }
+    if (body.length > 2000) {
+      feedback.textContent = 'Message exceeds 2000 characters. Please shorten it.';
       feedback.className = 'msg-submit-feedback error';
       return;
     }
